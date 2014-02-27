@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" 
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
-  
-  <bean id="processEngineConfiguration" class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
-    <property name="databaseSchemaUpdate" value="true"/>
-  	<property name="mailServerPort" value="1025"/>
-  	<property name="jobExecutorActivate" value="true" />
-  </bean>
- 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="processEngineConfiguration"
+		class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+		<property name="databaseSchemaUpdate" value="true" />
+		<property name="jobExecutorActivate" value="true" />
+		<!-- 邮件配置     //  需要看你的邮箱是否开通了smtp服务-->
+		<property name="mailServerHost" value="smtp.sina.com" />
+		<property name="mailServerPort" value="25" />
+		<property name="mailServerDefaultFrom" value="carlosli@sina.cn" />
+		<property name="mailServerUsername" value="carlosli@sina.cn" />
+		<property name="mailServerPassword" value="111111" />
+		<property name="mailServerUseSSL" value="false" />
+	</bean>
+
 </beans>
+
+
+
+<!-- mailServerHost 否 邮件服务器的主机名（比如：mail.mycorp.com）。默认为localhost -->
+<!-- mailServerPort 是，如果没有使用默认端口 邮件服务器上的SMTP传输端口。默认为25 -->
+<!-- mailServerDefaultFrom 否 如果用户没有指定发送邮件的邮件地址，默认设置的发送者的邮件地址。默认为activiti@activiti.org -->
+<!-- mailServerUsername 如果服务器需要 一些邮件服务器需要认证才能发送邮件。默认不设置。 -->
+<!-- mailServerPassword 如果服务器需要 一些邮件服务器需要认证才能发送邮件。默认不设置。 -->
+<!-- mailServerUseSSL 如果服务器需要 一些邮件服务器需要ssl交互。默认为false。 -->

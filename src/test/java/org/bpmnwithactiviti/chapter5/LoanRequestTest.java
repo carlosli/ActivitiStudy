@@ -3,6 +3,7 @@ package org.bpmnwithactiviti.chapter5;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,9 +34,14 @@ public class LoanRequestTest {
 		List<HistoricDetail> historyVariables = activitiRule.getHistoryService()
 		    .createHistoricDetailQuery()
 		    .variableUpdates()
-		    .orderByVariableName()
+		    .orderByVariableName() //orderByTime (变量被更新的时间) 或者 orderByVariableRevision (运行更新时变量的版本)
 		    .asc()
 		    .list();
+		
+		for (int i = 0; i < historyVariables.size(); i++) {
+			HistoricVariableUpdate loanAppUpdate = (HistoricVariableUpdate) historyVariables.get(i);
+			System.out.println(loanAppUpdate.getVariableName());
+		}
 		
 		assertNotNull(historyVariables);
 		assertEquals(7, historyVariables.size());

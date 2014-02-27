@@ -15,6 +15,7 @@
 				if((income / 2) > loanAmount) {
 				  creditCheckOk = true;
 				}
+				out:println "loanAmount:" + loanAmount + "; income:" + income;
 				out:println "Checked credit for " + name + " outcome is " + creditCheckOk;
 			</script>
 	</scriptTask>

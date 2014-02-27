@@ -8,7 +8,7 @@
     <sequenceFlow sourceRef="theStart" targetRef="sendMail" />
     <serviceTask id="sendMail" activiti:type="mail">
       <extensionElements>
-        <activiti:field name="to" stringValue="miss.piggy@localhost" />
+        <activiti:field name="to" stringValue="test@qq.com" />
         <activiti:field name="subject" expression="Hello ${name}" />
         <activiti:field name="html">
           <activiti:expression>
